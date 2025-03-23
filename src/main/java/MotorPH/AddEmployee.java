@@ -285,7 +285,7 @@ public class AddEmployee extends javax.swing.JFrame {
                 return; // Stop further execution
             }
 
-            if (data.readData(empNo.getText()) == true) {
+            if (data.readData(empNo.getText())) {
                 JOptionPane.showMessageDialog(this, "The employee # already exist", "Add Employee Data", JOptionPane.ERROR_MESSAGE);
                 return;
             }

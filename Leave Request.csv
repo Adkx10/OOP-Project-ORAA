@@ -1,7 +1,4 @@
-"EMPLOYEE #","LAST NAME","FIRST NAME","REASON","TYPE","DATE","STATUS","REMARKS"
-"10003","San Jose","Brad","Birthday Leave","Vacation Leave","10109","Rejected","Happy Birthday!"
-"10003","San Jose","Brad","Out of town","Vacation Leave","12312","Rejected","Sorry men!"
-"10003","San Jose","Brad","Meditation Session","Mental Wellness Leave","22","Rejected","13123"
-"10009","San Jose","Allison","Birthday Leave","Vacation Leave","123","Rejected","No Allocation"
-"10004","Salcedo","Anthony","Summer Time","Vacation Leave","12313","Pending",""
-"10004","Salcedo","Anthony","Check up","Mental Wellness Leave","12314","Pending",""
+EMPLOYEE #,LAST NAME,FIRST NAME,REASON,TYPE,DATE,STATUS,REMARKS
+,,,,,,,
+,,,,,,,
+,,,,,,,

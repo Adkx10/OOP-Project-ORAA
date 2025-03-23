@@ -6,6 +6,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -267,7 +268,7 @@ public class ViewRequest extends javax.swing.JFrame implements DataReader {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Date (mm/dd/yy) :");
+        jLabel2.setText("Date (mm/dd/yyyy) :");
 
         backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         backButton.setText("< Back");
@@ -442,6 +443,17 @@ public class ViewRequest extends javax.swing.JFrame implements DataReader {
         String empLeaveType = (leaveType.getSelectedItem() != null) ? leaveType.getSelectedItem().toString() : "N/A";
         String empLeaveStatus = "Pending";
         String empLeaveRemarks = "";
+
+        // Validate date format
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        sdf.setLenient(false); // Prevents invalid dates like 02/30/2024
+        
+        try {
+            sdf.parse(empLeaveDate); // Attempt to parse the date
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(this, "Invalid date format. Please enter the date as MM/DD/YYYY.", "Input Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         //Check for empty fields
         if (empLeaveReason.isEmpty() || empLeaveDate.isEmpty() || empLeaveType.equals("Unknown")) {

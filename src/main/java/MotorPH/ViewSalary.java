@@ -64,10 +64,10 @@ public class ViewSalary extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
         employeeNo = new javax.swing.JTextField();
-        hw = new javax.swing.JTextField();
         viewButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         viewCompensation = new javax.swing.JButton();
+        hw = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         showData = new javax.swing.JTextArea();
 
@@ -141,6 +141,8 @@ public class ViewSalary extends javax.swing.JFrame {
             }
         });
 
+        hw.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -160,8 +162,8 @@ public class ViewSalary extends javax.swing.JFrame {
                                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(employeeNo)
-                                    .addComponent(hw, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(employeeNo, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(hw, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -194,8 +196,6 @@ public class ViewSalary extends javax.swing.JFrame {
         );
 
         label2.getAccessibleContext().setAccessibleName("Month (Ex. July):");
-        hw.getAccessibleContext().setAccessibleName("");
-        hw.getAccessibleContext().setAccessibleDescription("");
 
         showData.setEditable(false);
         showData.setColumns(20);
@@ -235,7 +235,7 @@ public class ViewSalary extends javax.swing.JFrame {
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         try {
             String enteredEmpNo = employeeNo.getText().trim();
-            String month = hw.getText().trim();
+            String month = hw.getSelectedItem().toString().trim();
 
             if (enteredEmpNo.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please enter an employee number.",
@@ -389,7 +389,7 @@ public class ViewSalary extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JLabel date;
     private javax.swing.JTextField employeeNo;
-    private javax.swing.JTextField hw;
+    private javax.swing.JComboBox<String> hw;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

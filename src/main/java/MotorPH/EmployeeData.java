@@ -70,18 +70,33 @@ public class EmployeeData extends javax.swing.JFrame implements DataReader {
                 // Read and add data rows
                 String[] nextLine;
                 while ((nextLine = reader.readNext()) != null) {
-                    if (currentUser instanceof Admin || currentUser instanceof Manager) {
-                        // Admin & Manager: Show all employee details
-                        if ((empNo == null || empNo.isEmpty() || nextLine[0].equals(empNo))) {
+                    if (nextLine.length > 0 && empNo != null && nextLine[0].equals(empNo)) {
+                        empFound = true;
+
+                        if (currentUser instanceof Admin || currentUser instanceof Manager) {
+                            // Admin & Manager: Show all employee details
+                            //if ((empNo == null || empNo.isEmpty() || nextLine[0].equals(empNo))) {
                             model.addRow(nextLine);
-                            empFound = true;
+                            //empFound = true;
+                            //}
+                        } else if (currentUser instanceof RegularEmployee) {
+                            // Regular Employee: Show only their own details
+                            if (/*nextLine.length > 0 &&*/nextLine[0].equals(empNo)) {
+                                model.addRow(nextLine);
+                                //empFound = true;
+                            }
                         }
-                    } else if (currentUser instanceof RegularEmployee) {
-                        // Regular Employee: Show only their own details
-                        if (nextLine.length > 0 && nextLine[0].equals(empNo)) {
+                        break; // Exit loop early since only one record is relevant
+                    }
+
+                    if (empNo == null) {
+                        if (currentUser instanceof Admin || currentUser instanceof Manager) {
                             model.addRow(nextLine);
-                            empFound = true;
-                            break; // Exit loop early since only one record is relevant
+                        } else if (currentUser instanceof RegularEmployee) {
+                            // Regular Employee should only see their own data
+                            if (nextLine[0].equals(currentUser.getEmployeeNo())) {
+                                model.addRow(nextLine);
+                            }
                         }
                     }
                 }
@@ -317,8 +332,8 @@ public class EmployeeData extends javax.swing.JFrame implements DataReader {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -136,8 +136,8 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="employeeNo" max="32767" attributes="0"/>
-                                      <Component id="hw" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="employeeNo" pref="110" max="32767" attributes="0"/>
+                                      <Component id="hw" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -169,7 +169,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="label2" min="-2" max="-2" attributes="0"/>
-                      <Component id="hw" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="hw" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="viewButton" min="-2" max="-2" attributes="0"/>
@@ -212,12 +212,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="employeeNo">
         </Component>
-        <Component class="javax.swing.JTextField" name="hw">
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
-        </Component>
         <Component class="javax.swing.JButton" name="viewButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -250,6 +244,28 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewCompensationActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="hw">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="11">
+                <StringItem index="0" value="January"/>
+                <StringItem index="1" value="February"/>
+                <StringItem index="2" value="March"/>
+                <StringItem index="3" value="April"/>
+                <StringItem index="4" value="June"/>
+                <StringItem index="5" value="July"/>
+                <StringItem index="6" value="August"/>
+                <StringItem index="7" value="September"/>
+                <StringItem index="8" value="October"/>
+                <StringItem index="9" value="November"/>
+                <StringItem index="10" value="December"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
