@@ -1,4 +1,4 @@
-Please download the MotorPH-1.0-SNAPSHOT-shaded.jar from the release tab titled MotorPH v1.1
+Please download the MotorPH-1.0-SNAPSHOT-shaded.jar from the release tab titled MotorPH v1.2
 
 Then make sure to download the .csv files (except the copied csv those are for backup)
 
